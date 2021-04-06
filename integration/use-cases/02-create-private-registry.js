@@ -4,7 +4,7 @@ const utils = require("./lib/utils");
 test("Creates a private registry", async () => {
   var token =
     process.env.USE_MULTICLUSTER_OIDC_ENV === true ||
-    process.env.USE_MULTICLUSTER_OIDC_ENV === "true"
+      process.env.USE_MULTICLUSTER_OIDC_ENV === "true"
       ? undefined
       : process.env.ADMIN_TOKEN;
   page.on("response", response => {
@@ -90,14 +90,10 @@ test("Creates a private registry", async () => {
 
   const cookies = await page.cookies();
   const axiosConfig = {
-    headers:
-      process.env.USE_MULTICLUSTER_OIDC_ENV === true ||
-      process.env.USE_MULTICLUSTER_OIDC_ENV === "true"
-        ? {
-            Authorization: `${token}`,
-            Cookie: `${cookies[0] ? cookies[0].name : ""}=${cookies[0] ? cookies[0].value : ""}`,
-          }
-        : {},
+    headers: {
+      Authorization: `${token}`,
+      Cookie: `${cookies[0] ? cookies[0].name : ""}=${cookies[0] ? cookies[0].value : ""}`,
+    },
   };
   const response = await axios.get(URL, axiosConfig);
   expect(response.status).toEqual(200);
