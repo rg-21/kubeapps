@@ -95,7 +95,7 @@ test("Creates a private registry", async () => {
       process.env.USE_MULTICLUSTER_OIDC_ENV === "true"
         ? {
             Authorization: `${token}`,
-            Cookie: `${cookies[0]?.name}=${cookies[0]?.value};`,
+            Cookie: `${cookies[0] ? cookies[0].name : ""}=${cookies[0] ? cookies[0].value : ""}`,
           }
         : {},
   };
