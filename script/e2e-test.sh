@@ -176,7 +176,7 @@ installOrUpgradeKubeapps() {
       --set assetsvc.replicaCount=1 \
       --set dashboard.replicaCount=1 \
       --set postgresql.replication.enabled=false \
-      --set postgresql.postgresqlPassword=password \
+      --set postgresql.postgresqlPassword=password
 }
 
 # Operators are not supported in GKE 1.14 and flaky in 1.15
