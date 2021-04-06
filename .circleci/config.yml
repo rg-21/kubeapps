@@ -358,7 +358,7 @@ run_e2e_tests: &run_e2e_tests
         IMG_MODIFIER=""
       fi
 
-      if ./script/e2e-test.sh $USE_MULTICLUSTER_OIDC_ENV $OLM_VERSION latest $IMG_MODIFIER $DEFAULT_DEX_IP $ADDITIONAL_CLUSTER_IP; then
+      if ./script/e2e-test.sh $USE_MULTICLUSTER_OIDC_ENV $OLM_VERSION latest "" $DEFAULT_DEX_IP $ADDITIONAL_CLUSTER_IP; then
         # Test success
         echo "export TEST_RESULT=$?" >> $BASH_ENV
       else
