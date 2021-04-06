@@ -90,28 +90,28 @@ workflows:
             - build_dashboard
             - build_pinniped_proxy
       - GKE_1_17_MASTER:
-          <<: *build_on_master
+          <<: *build_always
           requires:
             - test_go
             - test_dashboard
             - build_go_images
             - build_dashboard
       - GKE_1_17_LATEST_RELEASE:
-          <<: *build_on_master
+          <<: *build_always
           requires:
             - test_go
             - test_dashboard
             - build_go_images
             - build_dashboard
       - GKE_1_18_MASTER:
-          <<: *build_on_master
+          <<: *build_always
           requires:
             - test_go
             - test_dashboard
             - build_go_images
             - build_dashboard
       - GKE_1_18_LATEST_RELEASE:
-          <<: *build_on_master
+          <<: *build_always
           requires:
             - test_go
             - test_dashboard
