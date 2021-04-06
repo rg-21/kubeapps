@@ -170,7 +170,7 @@ installOrUpgradeKubeapps() {
       ${invalidateCacheFlag} \
       "${img_flags[@]}" \
       "${@:2}" \
-      "${multiclusterFlags[@]}" \
+      "${multiclusterFlags[@]+"${multiclusterFlags[@]}"}" \
       --set frontend.replicaCount=1 \
       --set kubeops.replicaCount=1 \
       --set assetsvc.replicaCount=1 \
@@ -223,7 +223,6 @@ if [[ -z "${TEST_LATEST_RELEASE:-}" ]]; then
   invalidateCacheFlag="--set featureFlags.invalidateCache=true"
 fi
 
-multiclusterFlags=""
 if [ "$USE_MULTICLUSTER_OIDC_ENV" = true ] ; then
   multiclusterFlags=(
     "--set" "ingress.enabled=true"
