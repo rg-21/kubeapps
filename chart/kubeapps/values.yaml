@@ -50,7 +50,7 @@ kubeVersion: ""
 ingress:
   ## Set to true to enable ingress record generation
   ##
-  enabled: false
+  enabled: true
 
   ## Override API Version (automatically detected if not set)
   ##
@@ -571,7 +571,7 @@ postgresql:
   ## PostgreSQL password
   ## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md#setting-the-root-password-on-first-run
   ##
-  # postgresqlPassword:
+  postgresqlPassword: postgre
   ## Kubeapps uses PostgreSQL as a cache and persistence is not required
   ##
   persistence:
